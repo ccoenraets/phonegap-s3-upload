@@ -16,8 +16,7 @@ var s3Uploader = (function () {
         $.ajax({url: signingURI, data: {"fileName": fileName}, dataType: "json", type: "POST"})
             .done(function (data) {
                 options.params = {
-                    "key": fileName,
-                    "AWSAccessKeyId": data.awsKey,
+                    "key": data.awsKey,
                     "acl": "public-read",
                     "policy": data.policy,
                     "signature": data.signature,
